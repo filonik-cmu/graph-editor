@@ -452,7 +452,7 @@ object UpdaterPage:
         cls := "w-64 bg-slate-200",
       ),
       Content(graphSignal, graphUpdater).amend(
-        cls := "flex-grow",
+        cls := "flex-grow overflow-hidden",
       ),
       Detail(graphSignal, graphUpdater).amend(
         cls := "w-64 bg-slate-300 p-2",

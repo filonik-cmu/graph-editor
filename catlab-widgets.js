@@ -4,7 +4,7 @@ function j(f) {
   let s;
   return {
     mount: (o) => {
-      s = r.select(o).append("svg").attr("width", a).attr("height", c).attr("viewBox", [-a / 2, -c / 2, a, c]);
+      s = r.select(o).append("svg").attr("width", a).attr("height", c).attr("width", "100%").attr("height", "100%").attr("viewBox", [-a / 2, -c / 2, a, c]);
       s.append("g");
     },
     update: (o) => {
