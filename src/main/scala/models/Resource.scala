@@ -2,6 +2,9 @@ package editor.models
 
 type Predicate[A] = A => Boolean
 
+type Getter[S,A] = S => A
+type Setter[S,A] = (S, A) => S
+
 type Create[A] = () => A
 type Update[A] = A => A
 type Delete[A] = A => Unit
@@ -45,6 +48,16 @@ object Resource:
 
 
 import com.raquo.laminar.api.L.{*, given}
+
+object Update:
+  def zoom[S,A](signal: Signal[S], update: Observer[Update[S]])(getter: Getter[S,A])(setter: Setter[S,A]): (Signal[A], Observer[Update[A]]) =
+    (signal.map(getter), update.contramap((focusUpdate) => (value) => setter(value, focusUpdate(getter(value)))))
+
+object Updater:
+  def zoom[S,A](signal: Signal[S], updater: Updater[S])(getter: Getter[S,A])(setter: Setter[S,A]): (Signal[A], Updater[A]) = 
+    (signal.map(getter), (focusUpdater) => { 
+      updater((value) => setter(value, focusUpdater(getter(value))))
+    }) 
 
 def defaultUpdate[A]: Update[A] = (a) => a
 def defaultDelete[A]: Delete[A] = (a) => ()

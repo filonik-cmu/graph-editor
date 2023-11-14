@@ -20,6 +20,7 @@ object App:
     .collectStatic(Routes.Page.SignalObserver) { SignalObserverPage.apply }
     .collectStatic(Routes.Page.DerivedVar) { DerivedVarPage.apply }
     .collectStatic(Routes.Page.Updater) { UpdaterPage.apply }
+    .collectStatic(Routes.Page.GraphEditor) { GraphEditorPage.apply }
   
   def main(args: Array[String]): Unit = 
     lazy val container = dom.document.getElementById("app")

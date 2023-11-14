@@ -13,6 +13,7 @@ object Routes:
     case SignalObserver extends Page("SignalObserver")
     case DerivedVar extends Page("DerivedVar")
     case Updater extends Page("Updater")
+    case GraphEditor extends Page("GraphEditor")
 
   private def basePath: String =
     `import`.meta.env.BASE_URL.asInstanceOf[String] + "#"
@@ -22,6 +23,7 @@ object Routes:
     Route.static(Page.SignalObserver, root / "signal-observer" / endOfSegments, basePath),
     Route.static(Page.DerivedVar, root / "derived-var" / endOfSegments, basePath),
     Route.static(Page.Updater, root / "updater" / endOfSegments, basePath),
+    Route.static(Page.GraphEditor, root / "editor" / endOfSegments, basePath),
   )
 
   val router = new Router[Page](

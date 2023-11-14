@@ -23,6 +23,7 @@ object HomePage:
           li(routerLink(Page.SignalObserver)),
           li(routerLink(Page.DerivedVar)),
           li(routerLink(Page.Updater)),
+          li(routerLink(Page.GraphEditor)),
         ),
       ),
       Footer(),
