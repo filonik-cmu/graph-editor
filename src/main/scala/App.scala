@@ -21,6 +21,7 @@ object App:
     .collectStatic(Routes.Page.DerivedVar) { DerivedVarPage.apply }
     .collectStatic(Routes.Page.Updater) { UpdaterPage.apply }
     .collectStatic(Routes.Page.GraphEditor) { GraphEditorPage.apply }
+    .collectStatic(Routes.Page.Flowbite) { FlowbitePage.apply }
   
   def main(args: Array[String]): Unit = 
     lazy val container = dom.document.getElementById("app")

@@ -14,6 +14,7 @@ object Routes:
     case DerivedVar extends Page("DerivedVar")
     case Updater extends Page("Updater")
     case GraphEditor extends Page("GraphEditor")
+    case Flowbite extends Page("Flowbite")
 
   private def basePath: String =
     `import`.meta.env.BASE_URL.asInstanceOf[String] + "#"
@@ -24,6 +25,7 @@ object Routes:
     Route.static(Page.DerivedVar, root / "derived-var" / endOfSegments, basePath),
     Route.static(Page.Updater, root / "updater" / endOfSegments, basePath),
     Route.static(Page.GraphEditor, root / "editor" / endOfSegments, basePath),
+    Route.static(Page.Flowbite, root / "flowbite" / endOfSegments, basePath),
   )
 
   val router = new Router[Page](
