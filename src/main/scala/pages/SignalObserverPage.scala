@@ -139,7 +139,7 @@ object SignalObserverPage:
 
   def apply: HtmlElement = 
     val createCompany: Update[Seq[Company]] = _.create(
-      () => Company(departmentIdGen().toString(), "Unnamed")
+      () => Company(companyIdGen().toString(), "Unnamed")
     )
     div(
       cls := "grid grid-cols-2 overflow-hidden",

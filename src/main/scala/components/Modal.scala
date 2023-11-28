@@ -40,7 +40,8 @@ object ModalButton:
             optModal = Some(Modal(ctx.thisNode.ref))
           },
           unmount = { thisNode => 
-            optModal = None }
+            optModal = None
+          }
         ),
       )
     )

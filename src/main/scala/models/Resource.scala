@@ -57,7 +57,7 @@ object Updater:
   def zoom[S,A](signal: Signal[S], updater: Updater[S])(getter: Getter[S,A])(setter: Setter[S,A]): (Signal[A], Updater[A]) = 
     (signal.map(getter), (focusUpdater) => { 
       updater((value) => setter(value, focusUpdater(getter(value))))
-    }) 
+    })
 
 def defaultUpdate[A]: Update[A] = (a) => a
 def defaultDelete[A]: Delete[A] = (a) => ()
